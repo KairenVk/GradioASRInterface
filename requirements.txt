@@ -1,0 +1,7 @@
+gradio~=3.38.0
+numpy~=1.24.0
+mltu~=1.0.15
+torch~=2.0.1+cu118
+transformers~=4.29.2
+huggingface_hub~=0.16.4
+autocorrect~=2.6.1
