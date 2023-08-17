@@ -1,4 +1,4 @@
-gradio~=3.38.0
+gradio~=3.40.1
 numpy~=1.24.0
 mltu~=1.0.15
 torch~=2.0.1+cu118

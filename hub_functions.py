@@ -1,22 +1,36 @@
 import os
-
-from huggingface_hub import HfApi, ModelFilter
+import gradio as gr
+from huggingface_hub import HfApi, ModelFilter, ModelSearchArguments
 import torch
 from transformers import pipeline
-import settings
-
-models_dir = settings.models_dir
+from settings import models_dir, languages
 
 
-def getModels():
+def get_models_list(language="Polish", count=10, update=False):
+    models_list = []
     api = HfApi()
-    models = (api.list_models(sort="downloads", direction=-1, limit=10,
-                              filter=ModelFilter(
-                                  task="automatic-speech-recognition",
-                                  language="pl"
-                              )
-                              ))
-    return models
+    try:
+        models = (api.list_models(sort="downloads", direction=-1, limit=count,
+                                  filter=ModelFilter(
+                                      task="automatic-speech-recognition",
+                                      language=languages.get(language)
+                                  )
+                                  ))
+    except ConnectionError:
+        print("Couldn't connect to HuggingFace Hub. Check your internet connection.")
+        return models_list
+    for model in models:
+        models_list.append(model.modelId)
+    print(models_list[0])
+    if update:
+        return [gr.Dropdown.update(choices=models_list, value=models_list[0]), gr.Button.update(link=f"https://huggingface.co/{models_list[0]}")]
+    else:
+        return models_list
+
+
+def set_model_link(model):
+    url = "https://huggingface.co/" + model
+    return gr.Button.update(link=url)
 
 
 def transcribe(audio, model):
