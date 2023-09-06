@@ -1,5 +1,5 @@
-model_types = ["MLTU", "wav2vec2", "whisper"]
-models_dir = "Models/"
+use_cuda = False  # Change to "True" if you have CUDA-capable device you want to use.
+models_dir = "Models"
 autocorrect_languages = {"Polish": "pl",
                          "English": "en",
                          "Ukrainian": "uk",
