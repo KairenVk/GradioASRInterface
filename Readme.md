@@ -5,6 +5,8 @@ Transcription outputs are saved as text files in Outputs folder.
 
 ## Setup (Windows):
 
+### Use Python 3.10.
+
 For CPU users:
 - Install python dependencies: `pip install -r requirements.txt`
 - Download FFmpeg: https://ffmpeg.org
