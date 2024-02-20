@@ -4,3 +4,5 @@ numpy~=1.24.4
 transformers~=4.30.2
 autocorrect~=2.6.1
 PyYAML~=6.0.1
+kenlm~=0.2.0
+pyctcdecode~=0.5.0
