@@ -1,12 +1,12 @@
 import gradio as gr
-import autocorrect_functions
-import settings
 import transcription
 import models_functions
+import autocorrect_functions
+from models_functions import hub_models_names
+from app_settings import settings_yaml
 
-hub_models = models_functions.get_models_list(update=False)
-autocorrect_languages = settings.autocorrect_languages.keys()
-languages = settings.languages.keys()
+autocorrect_languages = settings_yaml['autocorrect_languages'].keys()
+languages = settings_yaml['languages'].keys()
 
 
 def send_to_correction(text):
@@ -34,11 +34,11 @@ with gr.Blocks() as user_interface:
                                                 value="Polish",
                                                 scale=1)
                 model_dropdown = gr.Dropdown(label="Model",
-                                             choices=hub_models,
-                                             value=hub_models[0],
+                                             choices=hub_models_names,
+                                             value=hub_models_names[0],
                                              scale=2)
                 model_info_btn = gr.Button(value="Model Info",
-                                           link="https://huggingface.co/" + hub_models[0],
+                                           link="https://huggingface.co/" + hub_models_names[0],
                                            scale=1)
                 language_dropdown.input(fn=models_functions.get_models_list,
                                         inputs=[language_dropdown],
@@ -82,4 +82,3 @@ with gr.Blocks() as user_interface:
                                             api_name="HFTranscribeLive")
                     la_correct = gr.Button("Send to correction")
                     la_correct.click(fn=send_to_correction, inputs=la_output, outputs=[tc_text_input, tabs])
-
