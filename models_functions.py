@@ -1,7 +1,7 @@
 import gradio as gr
 from huggingface_hub import HfApi, ModelFilter
-from modelClass import Model
-from modelListClass import Model_list
+from Model import Model
+from Model_list import Model_list
 from app_settings import settings_yaml
 
 
@@ -37,7 +37,7 @@ def refresh_models(models: Model_list, models_names):
     hub_models_names = models_names
 
 
-hub_models = get_models_list(update=False) # X -> UPDATE -> Y
+hub_models = get_models_list(update=False)
 hub_models_names = hub_models.get_model_names_list()
 
 
