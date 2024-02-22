@@ -40,4 +40,4 @@ File "settings.yaml" allows user to switch between using CUDA-capable devices (s
 ## Usage
 
 To run the app, use `start.bat` file (Windows),
-or `start.sh` (Linux).
+or `source start.sh` (Linux).
