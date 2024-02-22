@@ -1,14 +1,13 @@
 import os
 from datetime import datetime
 
-
 def save_output(audio, model, transcription):
     file_path = get_output_filepath(audio)
     with open(file_path, 'w', encoding='utf8') as f:
         f.write(
             f"""
             File: {os.path.basename(audio)}
-            Model: {model}
+            Model: {model.name}
             Transcription: "{transcription}" """)
 
 
@@ -17,7 +16,7 @@ def save_multiple_output(model, transcription):
     with open(file_path, 'w', encoding='utf8') as f:
         f.write(
             f"""
-            Model: {model}
+            Model: {model.name}
             Transcriptions:
             {transcription}"""
         )
