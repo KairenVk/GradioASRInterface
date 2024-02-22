@@ -30,7 +30,6 @@ def get_output_filepath(file=None):
     if file is None:
         file_path = f"Outputs\\{date_string}\\{time_string}_multiple_output.txt"
     else:
-        file_path = f"Outputs/{date_string}/{time_string}_{os.path.basename(file)}.txt"
-    print(file_path)
+        file_path = f"Outputs\\{date_string}\\{time_string}_{os.path.basename(file)}.txt"
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     return file_path
