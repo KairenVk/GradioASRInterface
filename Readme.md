@@ -8,13 +8,13 @@ Transcription outputs are saved as text files in Outputs folder.
 ### Tested using Python 3.11.7.
 
 For CPU users:
-- Run `./setup.sh`
-- Install FFmpeg for your distro if necessary.
+- Run `./setup.sh`,
+- Install FFmpeg for your distro if necessary, `sudo pacman -S ffmpeg`.
 
 For GPU users:
-- Run `./setup.sh`
-- Install CUDNN package for your distro,
-- Install FFmpeg for your distro if necessary.
+- Run `./setup.sh`,
+- Install CUDNN package for your distro, eg. `sudo pacman -S cudnn`,
+- Install FFmpeg for your distro if necessary, `sudo pacman -S ffmpeg`.
 
 ## Setup (Windows):
 
