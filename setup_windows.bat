@@ -1,4 +1,3 @@
 python -m venv .venv
-cd .venv\Scripts
-pip install wheel
-pip install -r requirements.windows.txt
+.venv\Scripts\pip.exe install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+.venv\Scripts\pip.exe install -r requirements.txt

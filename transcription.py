@@ -7,6 +7,9 @@ from app_settings import settings_yaml
 
 
 def transcribe(audio, model):
+    if audio is None:
+        gr.Error("No audio file provided!")
+        return None
     from models_functions import hub_models
     model_info = hub_models.get_model_by_name(model)
     gr.Info("Preparing model...")
@@ -36,6 +39,9 @@ def transcribe(audio, model):
 
 
 def transcribe_multiple(audio, model):
+    if audio is None:
+        gr.Error("No audio file provided!")
+        return None
     from models_functions import hub_models
     model_info = hub_models.get_model_by_name(model)
     transcriptions = []

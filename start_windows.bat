@@ -1,2 +1,1 @@
-cd .venv\Scripts
-python init.py
+.venv/Scripts/python.exe init.py
