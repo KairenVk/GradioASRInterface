@@ -38,6 +38,7 @@ For Nvidia GPU users:
 ## Settings
 
 File "settings.yaml" allows user to switch between using CUDA-capable devices (such as GPU) and change directory used to store models.
+
 ---
 ## Usage
 
