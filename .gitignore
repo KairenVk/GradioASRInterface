@@ -1,1 +1,8 @@
 /Models/
+/'Models'/
+.idea
+__pycache__
+/Outputs/
+/Cache/
+/.venv/
+/venv/
